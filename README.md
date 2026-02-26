@@ -1,8 +1,3 @@
-非常抱歉刚刚的回答被截断了！这里为您提供一份**完整、连贯且极具专业度的 `README.md` 模板**。
-
-这份模板完美涵盖了从项目背景、核心亮点、运行指南到引用信息的全部内容，您可以直接将以下内容完整复制并保存为 `README.md` 文件上传到 GitHub。
-
-```markdown
 # Physics-Guided Neural Network (PGNN) for VO2 Smart Window Inverse Design
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
