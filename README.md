@@ -1,4 +1,8 @@
-# ML-TC-Window
+非常抱歉刚刚的回答被截断了！这里为您提供一份**完整、连贯且极具专业度的 `README.md` 模板**。
+
+这份模板完美涵盖了从项目背景、核心亮点、运行指南到引用信息的全部内容，您可以直接将以下内容完整复制并保存为 `README.md` 文件上传到 GitHub。
+
+```markdown
 # Physics-Guided Neural Network (PGNN) for VO2 Smart Window Inverse Design
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -12,20 +16,51 @@ We propose a **Physics-Guided Neural Network (PGNN)** to overcome the computatio
 
 ## ✨ Key Features
 To ensure strict scientific reproducibility and robustness, this codebase implements:
-- **Strict Data Partitioning:** A rigorous `Split-then-Augment` protocol (Train/Validation/Test 3-way split) to eliminate data leakage.
-- **Physics-Informed Domain Randomization:** Gaussian perturbations applied exclusively to the training set to account for fabrication-induced morphological irregularities.
+- **Strict Data Partitioning:** A rigorous `Split-then-Augment` protocol (Train/Validation/Test 3-way split) to eliminate data leakage and ensure an unbiased evaluation.
+- **Physics-Informed Domain Randomization:** Gaussian perturbations are applied exclusively to the training set to account for fabrication-induced morphological irregularities (bridging the simulation-to-experiment gap).
 - **Physics-Constrained Loss Topology:** Custom TensorFlow loss functions utilizing ReLU penalties to strictly enforce non-negativity ($\Delta \ge 0$) and boundary limits ($\Delta \le 1$).
+- **Multi-Task Learning:** Simultaneously predicts both near-infrared solar modulation ($\Delta T_{NIR}$) and long-wave infrared emissivity variation ($\Delta \epsilon_{LWIR}$).
 
 ## 🗂️ Repository Structure
-- `dataset.xlsx`: The raw ground-truth dataset generated via full-wave FDTD simulations.
-- `main.py`: The unified Python script containing data preprocessing, PGNN model construction, training pipeline, inverse design via Genetic Algorithm, and visualization.
-- `requirements.txt`: List of required Python packages.
+- `dataset.xlsx`: The raw ground-truth dataset generated via full-wave FDTD simulations (N=99).
+- `main.py`: The unified Python script containing data preprocessing, PGNN model construction, the physics-constrained training pipeline, inverse design via Genetic Algorithm mapping, and visualization tools.
+- `requirements.txt`: List of required Python packages for seamless environment setup.
 
 ## 🚀 Quick Start
 
 ### 1. Environment Setup
-Clone this repository and install the required dependencies:
+Clone this repository and install the required dependencies using `pip`:
 ```bash
 git clone [https://github.com/YourUsername/YourRepoName.git](https://github.com/YourUsername/YourRepoName.git)
 cd YourRepoName
 pip install -r requirements.txt
+
+```
+
+### 2. Run the Pipeline
+
+Execute the main script to reproduce the entire workflow, including model training, evaluation, and plotting:
+
+```bash
+python main.py
+
+```
+
+*(Note: Training the model typically takes less than a minute on a standard modern CPU).*
+
+## 📊 Expected Outputs
+
+Upon successful execution, the script will sequentially generate and display the following visualizations and metrics:
+
+1. **Convergence Curves:** Dual-axis plots showing the standard MSE loss alongside the physical constraint penalties (Boundary & Smoothness), verifying the physics-guided learning process.
+2. **Prediction Surfaces:** 3D surface mapping of the PGNN predictions evaluated against the ground-truth discrete FDTD data (Training and Testing sets).
+3. **Inverse Design Analysis:** A comprehensive 4-in-1 chart including candidate design space distribution, comprehensive score contour maps, Pareto front analysis, and single-variable sensitivity curves.
+4. **Accuracy Evaluation:** Scatter plots and $R^2$ scores evaluated strictly on the completely unseen testing partition.
+5. **Feature Importance:** Permutation Feature Importance (PFI) analysis quantifying the relative impact of geometrical parameters within specified practical ranges.
+
+## 📜 Data and Code Availability
+
+The data and code presented in this repository are provided to ensure full transparency and reproducibility of the results discussed in the manuscript. The Testing partition is strictly sealed throughout the training phase and only utilized for the final $R^2$ accuracy evaluation.
+
+```
+```
